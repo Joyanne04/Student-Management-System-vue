@@ -9,7 +9,8 @@ const props = defineProps({
             name: "",
             gender: "",
             age: "",
-            email: ""
+            email: "",
+            password: ""
         })
     },
 
@@ -26,7 +27,8 @@ const form = reactive({
     name: "",
     gender: "",
     age: "",
-    email: ""
+    email: "",
+    password: ""
 });
 
 
@@ -38,6 +40,7 @@ watch(
         form.gender = newStudent.gender || "";
         form.age = newStudent.age || "";
         form.email = newStudent.email || "";
+        form.password = newStudent.password || "";
     },
 
     { immediate: true, deep: true}
@@ -51,7 +54,8 @@ function submitForm() {
         name: form.name,
         gender: form.gender,
         age: Number(form.age),
-        email: form.email
+        email: form.email,
+        password: form.password
     });
 }
 
@@ -96,6 +100,11 @@ function submitForm() {
         <div class="form-group">
             <label>Email</label>
             <input v-model="form.email" type="email" placeholder="Enter email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input v-model="form.password" type="password" placeholder="Enter password" required>
         </div>
 
         <div class="actions">
